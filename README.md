@@ -42,8 +42,3 @@ Open `http://127.0.0.1:5174`. If your backend runs somewhere other than `127.0.0
 | DELETE | `/api/links/:code`           | Delete a link                                 |
 | GET    | `/:code`                     | Redirect to the destination, records a click  |
 
-## Things to call out in an interview
-
-- Click tracking is a separate `clicks` table rather than just an incrementing counter, so it supports real analytics (trends over time) rather than only a running total.
-- Short codes use `secrets.choice`, not `random`, since predictable codes would let someone enumerate other users' links.
-- This is intentionally a single-user/demo-scope service (no auth on the links API) — the natural next step for production would be scoping links to an account the same way the TaskFlow project does, plus rate-limiting `POST /api/links` to stop abuse.
